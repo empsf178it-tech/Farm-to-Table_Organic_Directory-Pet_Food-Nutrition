@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Our Mission | Farm-to-Table Organic Pet Nutrition</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/favicon.svg">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       Site Header / Navigation (Strict Requirement: Hamburger <=1024px)
+       ========================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container navbar">
+      <a href="index.html" class="brand-logo" aria-label="Farm-to-Table Organic Directory Home">
+        <div class="brand-icon">🌱</div>
+        <div class="brand-text">Paws<span>Organic</span></div>
+      </a>
+
+      <!-- Desktop Navigation Menu (Visible ONLY > 1024px) -->
+      <nav class="nav-menu-desktop" aria-label="Desktop Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link active">About</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-auth-actions">
+          <button class="btn btn-secondary btn-sm open-login-btn">Log In</button>
+          <button class="btn btn-primary btn-sm open-signup-btn">Sign Up</button>
+        </div>
+      </nav>
+
+      <!-- Hamburger Menu Button (Visible ONLY <= 1024px) -->
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileNavDrawer">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer & Backdrop -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation Menu">
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="mobile-nav-link"><span>🏡</span> Home</a></li>
+      <li><a href="about.html" class="mobile-nav-link active"><span>🌿</span> About</a></li>
+      <li><a href="services.html" class="mobile-nav-link"><span>🐾</span> Services</a></li>
+      <li><a href="dashboard.html" class="mobile-nav-link"><span>📊</span> Dashboard</a></li>
+      <li><a href="contact.html" class="mobile-nav-link"><span>✉️</span> Contact</a></li>
+    </ul>
+    <div class="mobile-auth-actions">
+      <button class="btn btn-secondary btn-block open-login-btn">Log In</button>
+      <button class="btn btn-primary btn-block open-signup-btn">Sign Up</button>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       About Page Hero Banner
+       ========================================================================== -->
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="badge badge-organic" style="margin-bottom: 12px; background: rgba(255,255,255,0.2); color:#FFF;">Pioneering Honest Pet Care</span>
+        <h1>Our Story & Ethical Mission</h1>
+        <p>Bridging the gap between conscious pet guardians and verified regenerative farms to bring unadulterated nourishment into every pet's bowl.</p>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Story & Mission Section
+         ========================================================================== -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="about-mission-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;">
+          <div>
+            <span class="badge badge-organic">Founded on Transparency</span>
+            <h2 style="font-family: var(--font-heading); font-size: clamp(2rem, 3vw, 2.5rem); color: var(--dark-green); margin: 12px 0 20px;">
+              Reclaiming Real Food for Companion Animals
+            </h2>
+            <p style="color: var(--muted-text); margin-bottom: 16px; font-size: 1.05rem; line-height: 1.7;">
+              PawsOrganic was created out of frustration with misleading pet food labels, mystery meat renders, and chemical preservatives disguised as healthy nutrition. We asked a simple question: <em>why shouldn't our dogs and cats enjoy the same farm-fresh transparency we demand for our own plates?</em>
+            </p>
+            <p style="color: var(--muted-text); margin-bottom: 24px; font-size: 1.05rem; line-height: 1.7;">
+              Today, our nationwide directory connects pet parents with local regenerative farms, small-batch artisanal kitchens, and holistic animal dieticians dedicated to nutrient bioavailability and environmental harmony.
+            </p>
+            <div style="display: flex; gap: 24px;">
+              <div>
+                <h4 style="font-family: var(--font-heading); font-size: 1.8rem; color: var(--primary-green); font-weight: 800;">100%</h4>
+                <p style="font-size: 0.85rem; color: var(--muted-text);">Audited Farm Sourcing</p>
+              </div>
+              <div style="border-left: 2px solid var(--border-light); padding-left: 24px;">
+                <h4 style="font-family: var(--font-heading); font-size: 1.8rem; color: var(--primary-green); font-weight: 800;">Zero</h4>
+                <p style="font-size: 0.85rem; color: var(--muted-text);">Rendered Animal By-Products</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); border: 6px solid var(--white);">
+              <img src="assets/images/dogs-and-cats-together.jpg" alt="Healthy dogs and cats thriving together on organic meals" width="600" height="420">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Why Farm-to-Table Matters & Sourcing Process
+         ========================================================================== -->
+    <section class="section-padding" style="background-color: var(--light-green-alt);">
+      <div class="container">
+        <div class="section-head text-center">
+          <span class="badge badge-organic">Regenerative Integrity</span>
+          <h2>Our Ingredient Sourcing Standards</h2>
+          <p>We believe animals thrive when food stays close to nature's biological rhythms.</p>
+        </div>
+
+        <div class="why-us-grid">
+          <div class="why-card">
+            <div class="why-icon">🌿</div>
+            <h3>Certified Organic Soils</h3>
+            <p>Heirloom squash, carrots, and kelp raised in living soil devoid of synthetic chemical weedkillers or glyphosate.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon">🐓</div>
+            <h3>Pasture-Raised Welfare</h3>
+            <p>Chickens, cattle, and turkeys roam free under open skies with cruelty-free handling, zero hormone additives, and natural diets.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon">🐟</div>
+            <h3>Sustainable Ocean Harvest</h3>
+            <p>Our fish suppliers employ selective hook-and-line or certified sustainable netting to protect delicate marine ecosystems.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon">🔬</div>
+            <h3>Third-Party Laboratory Testing</h3>
+            <p>Batch audits check for heavy metal purity, microbial safety, and genuine nutrient density before any product is listed.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Sustainability & Quality Principles
+         ========================================================================== -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="about-mission-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;">
+          <div>
+            <div style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); border: 6px solid var(--white);">
+              <img src="assets/images/eco-friendly-packaging.jpg" alt="Sustainable eco-friendly packaging for pet meals" width="600" height="420">
+            </div>
+          </div>
+
+          <div>
+            <span class="badge">Eco Commitments</span>
+            <h2 style="font-family: var(--font-heading); font-size: clamp(2rem, 3vw, 2.5rem); color: var(--dark-green); margin: 12px 0 20px;">
+              Closing the Loop on Plastic & Waste
+            </h2>
+            <p style="color: var(--muted-text); margin-bottom: 16px; font-size: 1.05rem; line-height: 1.7;">
+              Pet nutrition shouldn't cost the Earth. Over 80% of our partnered suppliers package meals in backyard-compostable pouches, recyclable tins, or insulated chilled shippers crafted from reclaimed ocean plastics.
+            </p>
+            <ul style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+              <li style="display: flex; align-items: center; gap: 10px; font-size: 0.95rem; font-weight: 600; color: var(--dark-green);">
+                <span>✓</span> 100% Carbon-Neutral regional courier partnerships
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px; font-size: 0.95rem; font-weight: 600; color: var(--dark-green);">
+                <span>✓</span> Zero landfill initiatives across all verified commercial kitchens
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px; font-size: 0.95rem; font-weight: 600; color: var(--dark-green);">
+                <span>✓</span> Support for smallholder family farming co-operatives
+              </li>
+            </ul>
+            <a href="services.html" class="btn btn-primary">Discover Verified Suppliers</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Leadership Team Cards
+         ========================================================================== -->
+    <section class="section-padding" style="background-color: var(--white);">
+      <div class="container">
+        <div class="section-head text-center">
+          <span class="badge">Passionate Advocates</span>
+          <h2>The Team Behind the Directory</h2>
+          <p>Pet nutrition enthusiasts, regenerative agronomists, and digital pioneers dedicated to transparent welfare.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px;">
+          <!-- Team Member 1 -->
+          <div class="why-card" style="text-align: center;">
+            <div style="width: 110px; height: 110px; border-radius: 50%; overflow: hidden; margin: 0 auto 16px; border: 4px solid var(--light-green);">
+              <img src="assets/images/nutrition-consultations.jpg" alt="Dr. Evelyn Moore - Founder">
+            </div>
+            <h3 style="font-size: 1.2rem; margin-bottom: 4px;">Dr. Evelyn Moore</h3>
+            <span style="font-size: 0.85rem; color: var(--primary-green); font-weight: 600;">Founder & Holistic Agronomist</span>
+            <p style="font-size: 0.88rem; color: var(--muted-text); margin-top: 10px;">
+              Over 15 years researching soil microbiome interactions and clean animal nutrition standards.
+            </p>
+          </div>
+
+          <!-- Team Member 2 -->
+          <div class="why-card" style="text-align: center;">
+            <div style="width: 110px; height: 110px; border-radius: 50%; overflow: hidden; margin: 0 auto 16px; border: 4px solid var(--light-green);">
+              <img src="assets/images/veterinary-nutrition.jpg" alt="Julian Sterling - Head of Farm Verification">
+            </div>
+            <h3 style="font-size: 1.2rem; margin-bottom: 4px;">Julian Sterling</h3>
+            <span style="font-size: 0.85rem; color: var(--primary-green); font-weight: 600;">Director of Farm Auditing</span>
+            <p style="font-size: 0.88rem; color: var(--muted-text); margin-top: 10px;">
+              Personally inspects pastured ranches and guarantees adherence to cruelty-free certification.
+            </p>
+          </div>
+
+          <!-- Team Member 3 -->
+          <div class="why-card" style="text-align: center;">
+            <div style="width: 110px; height: 110px; border-radius: 50%; overflow: hidden; margin: 0 auto 16px; border: 4px solid var(--light-green);">
+              <img src="assets/images/pet-wellness.jpg" alt="Aria Lin - Community & Diet Coordinator">
+            </div>
+            <h3 style="font-size: 1.2rem; margin-bottom: 4px;">Aria Lin</h3>
+            <span style="font-size: 0.85rem; color: var(--primary-green); font-weight: 600;">Pet Parent Advocate</span>
+            <p style="font-size: 0.88rem; color: var(--muted-text); margin-top: 10px;">
+              Connects guardians with personalized farm-to-table suppliers tailored to dietary needs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Call to Action
+         ========================================================================== -->
+    <div class="container">
+      <section class="newsletter-section" style="margin: 30px auto 80px;">
+        <div class="newsletter-content">
+          <span class="badge badge-organic" style="background: rgba(255,255,255,0.2); color:#FFF; margin-bottom: 12px;">Ready for Better Bowls?</span>
+          <h2>Give Your Companion Food You Can Trust</h2>
+          <p>Explore our organic directory of fresh proteins, nutrient-dense treats, and direct farm suppliers.</p>
+          <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+            <a href="services.html" class="btn btn-accent">Explore Services & Products</a>
+            <a href="contact.html" class="btn btn-outline-white">Reach Our Team</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       Site Footer
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-about">
+          <div class="brand-logo" style="color: #FFF; margin-bottom: 14px;">
+            <div class="brand-icon">🌱</div>
+            <div>Paws<span>Organic</span></div>
+          </div>
+          <p>The premier farm-to-table organic directory dedicated to transparent nutrition and regenerative agriculture.</p>
+          <div class="social-links">
+            <a href="#" class="social-btn">FB</a>
+            <a href="#" class="social-btn">IG</a>
+            <a href="#" class="social-btn">X</a>
+            <a href="#" class="social-btn">IN</a>
+          </div>
+        </div>
+
+        <div class="footer-col footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Our Mission</a></li>
+            <li><a href="services.html">Organic Services</a></li>
+            <li><a href="dashboard.html">User Dashboard</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-links">
+          <h3>Categories</h3>
+          <ul>
+            <li><a href="services.html?category=Dog%20Food">Organic Dog Food</a></li>
+            <li><a href="services.html?category=Cat%20Food">Natural Cat Food</a></li>
+            <li><a href="services.html?category=Natural%20Treats">Whole Food Treats</a></li>
+            <li><a href="services.html?category=Fresh%20Meals">Fresh Prepared Bowls</a></li>
+            <li><a href="services.html?category=Nutrition%20Supplements">Supplements</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-contact">
+          <h3>Contact Directory</h3>
+          <ul>
+            <li><span>📍</span> 482 Organic Pasture Lane, Portland, OR 97201</li>
+            <li><span>📞</span> +1 (800) 555-PAWS (7297)</li>
+            <li><span>✉️</span> support@pawsorganic.demo</li>
+            <li><span>⏰</span> Mon - Fri: 8:00 AM - 6:00 PM PST</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Farm-to-Table Organic Directory. All Rights Reserved. Frontend Demonstration.</div>
+        <div><span>Privacy Policy</span> • <span>Terms of Service</span> • <span>Non-Veterinary Disclaimer</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Login Modal -->
+  <div class="modal-overlay" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" data-close-modal="loginModal" aria-label="Close modal">&times;</button>
+      <div class="modal-header">
+        <h2 id="loginTitle">Welcome Back</h2>
+        <p>Log in to manage your favorites and farm orders</p>
+      </div>
+      <form id="loginForm" novalidate>
+        <div class="form-group">
+          <label for="loginEmail">Email Address</label>
+          <input type="email" id="loginEmail" class="form-control" placeholder="name@example.com" required>
+          <div class="invalid-feedback">Valid email required</div>
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <div class="password-input-wrap">
+            <input type="password" id="loginPassword" class="form-control" placeholder="Enter password (min 6 chars)" required>
+            <button type="button" class="password-toggle-btn" data-target="loginPassword">👁️</button>
+          </div>
+          <div class="invalid-feedback">Password must be at least 6 characters</div>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; font-size: 0.88rem;">
+          <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+            <input type="checkbox" id="loginRemember"> Remember me
+          </label>
+          <a href="#" style="color: var(--primary-green); font-weight: 600;" onclick="showToast('Password reset link sent to demo email', 'info'); return false;">Forgot Password?</a>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Log In</button>
+      </form>
+      <div class="modal-switch-text">
+        Don't have an account? <a href="#" id="switchToSignup">Create an account</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Signup Modal -->
+  <div class="modal-overlay" id="signupModal" role="dialog" aria-modal="true" aria-labelledby="signupTitle">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" data-close-modal="signupModal" aria-label="Close modal">&times;</button>
+      <div class="modal-header">
+        <h2 id="signupTitle">Join Our Farm Community</h2>
+        <p>Discover fresh, organic pet nutrition directly from growers</p>
+      </div>
+      <form id="signupForm" novalidate>
+        <div class="form-group">
+          <label for="signupName">Full Name</label>
+          <input type="text" id="signupName" class="form-control" placeholder="Sarah Jenkins" required>
+          <div class="invalid-feedback">Full name is required</div>
+        </div>
+        <div class="form-group">
+          <label for="signupEmail">Email Address</label>
+          <input type="email" id="signupEmail" class="form-control" placeholder="sarah@example.com" required>
+          <div class="invalid-feedback">Valid email required</div>
+        </div>
+        <div class="form-group">
+          <label for="signupPassword">Password</label>
+          <div class="password-input-wrap">
+            <input type="password" id="signupPassword" class="form-control" placeholder="Create password (min 6 chars)" required>
+            <button type="button" class="password-toggle-btn" data-target="signupPassword">👁️</button>
+          </div>
+          <div class="invalid-feedback">Password must be at least 6 characters</div>
+        </div>
+        <div class="form-group">
+          <label for="signupConfirmPassword">Confirm Password</label>
+          <div class="password-input-wrap">
+            <input type="password" id="signupConfirmPassword" class="form-control" placeholder="Re-enter password" required>
+            <button type="button" class="password-toggle-btn" data-target="signupConfirmPassword">👁️</button>
+          </div>
+          <div class="invalid-feedback">Passwords must match</div>
+        </div>
+        <div class="form-group" style="margin-bottom: 20px;">
+          <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.85rem; cursor: pointer;">
+            <input type="checkbox" id="signupTerms" required style="margin-top: 3px;">
+            <span>I agree to the Terms of Service & Privacy Policy (Demo confirmation)</span>
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+      </form>
+      <div class="modal-switch-text">
+        Already have an account? <a href="#" id="switchToLogin">Log in here</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll-to-top button with circular animated progress ring -->
+  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top of page">
+    <svg class="scroll-progress-svg" viewBox="0 0 50 50">
+      <defs>
+        <linearGradient id="scrollGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#81C784"/>
+          <stop offset="100%" stop-color="#2E7D32"/>
+        </linearGradient>
+      </defs>
+      <circle class="scroll-progress-track" cx="25" cy="25" r="22"></circle>
+      <circle class="scroll-progress-bar" id="scrollProgressBar" cx="25" cy="25" r="22"></circle>
+    </svg>
+    <span class="scroll-top-icon">↑</span>
+  </button>
+
+  <!-- Dual AI Nutritionist & WhatsApp Instant Connect Floating Widget -->
+  <aside class="chat-dock" aria-label="Customer Support and AI Assistant">
+    <a href="https://wa.me/18005550199?text=Hi%2C%20I%20have%20a%20question%20about%20Farm-to-Table%20Organic%20pet%20nutrition" class="chat-launcher-btn whatsapp-launcher" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+      <svg viewBox="0 0 24 24">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.058-1.503-.312-.998-.423-1.666-1.393-1.716-1.46-.049-.068-.403-.537-.403-1.025 0-.488.257-.728.348-.827.091-.099.199-.124.266-.124.066 0 .133.003.19.006.061.003.143-.023.224.17.082.199.281.685.306.735.025.05.041.108.008.174-.033.067-.049.108-.099.166-.05.058-.105.13-.15.174-.05.05-.102.105-.044.205.058.099.257.424.551.686.379.337.698.441.797.491.099.05.158.042.216-.025.058-.066.249-.29.315-.39.066-.099.133-.083.224-.05.091.033.58.274.68.324.099.05.166.075.19.116.025.042.025.241-.119.646z"/>
+        <path d="M12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.66 1.436 5.176L2 22l4.981-1.306A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.167c-1.583 0-3.066-.454-4.327-1.24l-.31-.194-2.868.752.766-2.802-.213-.339A8.127 8.127 0 013.833 12c0-4.503 3.664-8.167 8.167-8.167 4.503 0 8.167 3.664 8.167 8.167 0 4.503-3.664 8.167-8.167 8.167z"/>
+      </svg>
+      <span class="launcher-tooltip">WhatsApp Us</span>
+    </a>
+
+    <button class="chat-launcher-btn ai-chat-launcher" id="aiChatLauncher" aria-label="Open AI Nutritionist Assistant">
+      <span class="ai-launcher-icon">🤖</span>
+      <span class="ai-online-badge"></span>
+      <span class="launcher-tooltip">Ask AI Nutritionist</span>
+    </button>
+  </aside>
+
+  <!-- AI Nutritionist Interactive Chat Window -->
+  <div class="ai-chat-window" id="aiChatWindow" role="dialog" aria-labelledby="aiChatTitle">
+    <div class="ai-chat-header">
+      <div class="ai-chat-title">
+        <div class="ai-avatar">🌱</div>
+        <div>
+          <h3 id="aiChatTitle">Dr. Paw AI Nutritionist</h3>
+          <p>Verified Organic Nutrition Advisor • Online</p>
+        </div>
+      </div>
+      <button class="ai-close-btn" id="aiCloseBtn" aria-label="Close AI Chat">&times;</button>
+    </div>
+
+    <div class="ai-chat-messages" id="aiChatMessages">
+      <div class="chat-bubble bot">
+        Hello! 🌿 Have questions about our farm partners, animal welfare standards, or organic certification? Ask me anything!
+      </div>
+      <div class="chat-quick-suggestions">
+        <button class="suggestion-pill" data-prompt="Where are the local farms?">Farm Locations 🚜</button>
+        <button class="suggestion-pill" data-prompt="Are ingredients human-grade?">Human-Grade Standards 🥗</button>
+        <button class="suggestion-pill" data-prompt="Connect with human on WhatsApp">WhatsApp Team 📱</button>
+      </div>
+    </div>
+
+    <form class="ai-chat-input-bar" id="aiChatForm">
+      <input type="text" id="aiChatInput" placeholder="Ask about farms, sourcing..." aria-label="Chat input">
+      <button type="submit" class="ai-chat-send-btn" aria-label="Send message">➤</button>
+    </form>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

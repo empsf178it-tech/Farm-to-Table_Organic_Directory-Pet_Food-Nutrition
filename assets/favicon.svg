@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2E7D32"/>
+      <stop offset="100%" stop-color="#1B4332"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#81C784"/>
+      <stop offset="100%" stop-color="#4CAF50"/>
+    </linearGradient>
+  </defs>
+  <!-- Rounded Squircle Badge -->
+  <rect width="64" height="64" rx="18" fill="url(#bgGrad)"/>
+  
+  <!-- Subtle Glow Effect -->
+  <circle cx="32" cy="32" r="24" fill="#ffffff" opacity="0.08"/>
+
+  <!-- Sprout Stem & Leaves -->
+  <!-- Stem -->
+  <path d="M32 50 C32 38 33 28 32 24" stroke="#A5D6A7" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+  
+  <!-- Left Sprout Leaf -->
+  <path d="M32 35 C22 35 16 26 20 18 C28 16 33 25 32 35 Z" fill="url(#accentGrad)" stroke="#E8F5E9" stroke-width="1.5"/>
+  
+  <!-- Right Sprout Leaf -->
+  <path d="M32 28 C42 27 48 18 43 12 C35 12 31 20 32 28 Z" fill="#81C784" stroke="#E8F5E9" stroke-width="1.5"/>
+
+  <!-- Small Paw Print Accent at Base -->
+  <circle cx="28" cy="48" r="2" fill="#E65100"/>
+  <circle cx="33" cy="46" r="2.2" fill="#E65100"/>
+  <circle cx="38" cy="49" r="1.8" fill="#E65100"/>
+</svg>

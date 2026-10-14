@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farm-to-Table Organic Directory | Pet Food & Natural Nutrition</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/favicon.svg">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       Site Header / Navigation (Strict Requirement: Hamburger <=1024px)
+       ========================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container navbar">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="Farm-to-Table Organic Directory Home">
+        <div class="brand-icon">🌱</div>
+        <div class="brand-text">Paws<span>Organic</span></div>
+      </a>
+
+      <!-- Desktop Navigation Menu (Visible ONLY > 1024px) -->
+      <nav class="nav-menu-desktop" aria-label="Desktop Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-auth-actions">
+          <button class="btn btn-secondary btn-sm open-login-btn">Log In</button>
+          <button class="btn btn-primary btn-sm open-signup-btn">Sign Up</button>
+        </div>
+      </nav>
+
+      <!-- Hamburger Menu Button (Visible ONLY <= 1024px) -->
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileNavDrawer">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer & Backdrop (Active on <= 1024px) -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation Menu">
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="mobile-nav-link active"><span>🏡</span> Home</a></li>
+      <li><a href="about.html" class="mobile-nav-link"><span>🌿</span> About</a></li>
+      <li><a href="services.html" class="mobile-nav-link"><span>🐾</span> Services</a></li>
+      <li><a href="dashboard.html" class="mobile-nav-link"><span>📊</span> Dashboard</a></li>
+      <li><a href="contact.html" class="mobile-nav-link"><span>✉️</span> Contact</a></li>
+    </ul>
+    <div class="mobile-auth-actions">
+      <button class="btn btn-secondary btn-block open-login-btn">Log In</button>
+      <button class="btn btn-primary btn-block open-signup-btn">Sign Up</button>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       Hero Section
+       ========================================================================== -->
+  <main>
+    <section class="hero" id="heroSection">
+      <!-- Dynamic Ambient 3D Glow Orbs & Particles -->
+      <div class="hero-ambient-blob blob-1" aria-hidden="true"></div>
+      <div class="hero-ambient-blob blob-2" aria-hidden="true"></div>
+      <div class="hero-ambient-blob blob-3" aria-hidden="true"></div>
+      <canvas id="heroParticlesCanvas" class="hero-particles-canvas" aria-hidden="true"></canvas>
+
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-pill-badge" data-tilt-light>
+            <span class="hero-badge-dot"></span>
+            <span>🌱 Pure Farm-to-Bowl Pet Nutrition</span>
+            <span class="hero-badge-tag">8D Immersion</span>
+          </div>
+
+          <h1 class="hero-title">
+            Good Food. Happy Pets. <br>
+            <span class="gradient-text-3d">Healthier Planet.</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Connect directly with verified organic farms, human-grade natural food artisans, and sustainable pet nutrition experts. No fillers, no synthetic preservatives—pure wholesome goodness.
+          </p>
+
+          <!-- Search Bar with 3D Glass Morphism -->
+          <form class="hero-search-box glass-card-3d" action="services.html" method="GET">
+            <span class="search-icon-anim" aria-hidden="true">🔍</span>
+            <input type="text" name="search" placeholder="Search organic chicken, wild salmon, raw meals..." aria-label="Search pet food or suppliers">
+            <button type="submit" class="btn btn-accent btn-sm hero-search-btn">
+              <span>Search Directory</span>
+              <span class="btn-arrow">→</span>
+            </button>
+          </form>
+
+          <div class="hero-actions-row">
+            <div class="hero-actions">
+              <a href="services.html" class="btn btn-primary btn-3d-pulse">
+                <span>🐾 Explore Products</span>
+              </a>
+              <a href="about.html#suppliers" class="btn btn-secondary btn-3d-glass">
+                <span>🚜 Find Local Suppliers</span>
+              </a>
+            </div>
+
+            <!-- Live 8D Sound / Vibe Experience Bar (Neatly aligned) -->
+            <div class="hero-sound-bar" id="heroSoundBar" title="Click to experience soothing organic farm nature sounds" role="button" tabindex="0">
+              <button class="sound-toggle-btn" id="soundToggleBtn" aria-label="Toggle soothing farm soundscape">
+                <span class="sound-icon" id="soundIcon">🎧</span>
+                <span class="sound-wave-bars">
+                  <span></span><span></span><span></span><span></span>
+                </span>
+              </button>
+              <div class="sound-info">
+                <span class="sound-label">8D Spatial Farm Ambience</span>
+                <span class="sound-status" id="soundStatusText">Click to listen</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" id="heroVisualScene">
+          <!-- 3D Perspective Card Container -->
+          <div class="hero-tilt-container" id="heroTiltContainer">
+            <div class="hero-image-wrapper card-3d-inner">
+              <video class="hero-main-video" autoplay loop muted playsinline poster="assets/images/organic-farm-landscape.jpg" aria-label="Farm-to-table organic dog and cat food video">
+                <source src="assets/video/Dog_and_cat_farm_food_20261014160749.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <div class="hero-image-overlay"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Trust Bar / Statistics
+         ========================================================================== -->
+    <section class="trust-bar" aria-label="Trust indicators">
+      <div class="container">
+        <div class="trust-grid">
+          <div class="trust-item">
+            <div class="trust-icon">🌱</div>
+            <div class="trust-info">
+              <h3><span class="counter-val" data-target="100">100</span>% Organic</h3>
+              <p>Pesticide & GMO-free ingredients</p>
+            </div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-icon">🚜</div>
+            <div class="trust-info">
+              <h3><span class="counter-val" data-target="45">45</span>+ Local Farms</h3>
+              <p>Ethical regenerative growers</p>
+            </div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-icon">🐾</div>
+            <div class="trust-info">
+              <h3><span class="counter-val" data-target="28000">28,000</span>+ Pets</h3>
+              <p>Thriving on farm-to-table bowls</p>
+            </div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-icon">✨</div>
+            <div class="trust-info">
+              <h3><span class="counter-val" data-target="0">0</span>% Artificial</h3>
+              <p>No synthetic chemicals or colors</p>
+            </div>
+          </div>
+        </div>
+        <p class="demo-disclaimer">* Demonstration metrics illustrating platform capabilities and curated farm network.</p>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Categories Section
+         ========================================================================== -->
+    <section class="section-padding" id="categoriesSection">
+      <div class="container">
+        <div class="section-head text-center">
+          <span class="badge">Explore Fresh Nutrition</span>
+          <h2>Wholesome Categories</h2>
+          <p>Every ingredient chosen with biological care, transparently sourced from reputable regenerative farms.</p>
+        </div>
+
+        <div class="categories-grid">
+          <a href="services.html?category=Dog%20Food" class="category-card">
+            <div class="category-img-thumb">
+              <img src="assets/images/organic-dog-food.jpg" alt="Organic Dog Food" loading="lazy">
+            </div>
+            <h3>Dog Food</h3>
+            <span>Pasture & grain-free</span>
+          </a>
+
+          <a href="services.html?category=Cat%20Food" class="category-card">
+            <div class="category-img-thumb">
+              <img src="assets/images/organic-cat-food.jpg" alt="Organic Cat Food" loading="lazy">
+            </div>
+            <h3>Cat Food</h3>
+            <span>Obligate carnivore diet</span>
+          </a>
+
+          <a href="services.html?category=Natural%20Treats" class="category-card">
+            <div class="category-img-thumb">
+              <img src="assets/images/natural-pet-treats.jpg" alt="Natural Pet Treats" loading="lazy">
+            </div>
+            <h3>Natural Treats</h3>
+            <span>Single-ingredient chew</span>
+          </a>
+
+          <a href="services.html?category=Fresh%20Meals" class="category-card">
+            <div class="category-img-thumb">
+              <img src="assets/images/fresh-pet-food-bowls.jpg" alt="Fresh Pet Meals" loading="lazy">
+            </div>
+            <h3>Fresh Meals</h3>
+            <span>Gently cooked & raw</span>
+          </a>
+
+          <a href="services.html?category=Nutrition%20Supplements" class="category-card">
+            <div class="category-img-thumb">
+              <img src="assets/images/pet-nutrition-supplements.jpg" alt="Nutrition Supplements" loading="lazy">
+            </div>
+            <h3>Supplements</h3>
+            <span>Omegas & herbal boosters</span>
+          </a>
+
+          <a href="services.html?category=Organic%20Ingredients" class="category-card">
+            <div class="category-img-thumb">
+              <img src="assets/images/pet-safe-vegetables.jpg" alt="Organic Ingredients" loading="lazy">
+            </div>
+            <h3>Ingredients</h3>
+            <span>Farm produce & broths</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Featured Products Section
+         ========================================================================== -->
+    <section class="section-padding" style="background-color: var(--light-green-alt);" id="featuredProducts">
+      <div class="container">
+        <div class="section-head text-center">
+          <span class="badge badge-organic">Handpicked Selection</span>
+          <h2>Featured Farm-to-Table Products</h2>
+          <p>Carefully vetted batches prepared with human-grade whole foods straight from verified organic suppliers.</p>
+        </div>
+
+        <div class="products-grid">
+          <!-- Card 1 -->
+          <article class="product-card">
+            <div class="product-thumb">
+              <img src="assets/images/organic-dog-food.jpg" alt="Free-Range Pasture Chicken Meal" loading="lazy">
+              <span class="badge badge-organic product-badge-float">🌱 Certified Organic Demo</span>
+              <button class="btn-favorite-float" data-product-id="prod-1" aria-label="Save to favorites">🤍</button>
+            </div>
+            <div class="product-body">
+              <span class="product-category">Dog Food</span>
+              <h3 class="product-title">Free-Range Pasture Chicken Meal</h3>
+              <p class="product-desc">Slow-steamed free-range chicken blended with certified organic carrots, celery, and cold-pressed flaxseed oil.</p>
+              <div class="product-supplier">
+                <span>Supplier:</span> Meadow Valley Organic Farms
+              </div>
+              <div class="product-footer">
+                <div class="product-price">$34.99</div>
+                <button class="btn btn-primary btn-sm btn-view-details" data-id="prod-1">View Details</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="product-card">
+            <div class="product-thumb">
+              <img src="assets/images/salmon.jpg" alt="Wild Pacific Salmon & Sweet Potato" loading="lazy">
+              <span class="badge badge-organic product-badge-float">🌱 Certified Organic Demo</span>
+              <button class="btn-favorite-float" data-product-id="prod-2" aria-label="Save to favorites">🤍</button>
+            </div>
+            <div class="product-body">
+              <span class="product-category">Dog Food</span>
+              <h3 class="product-title">Wild Pacific Salmon & Sweet Potato</h3>
+              <p class="product-desc">Wild sustainably-sourced salmon rich in DHA & EPA omega fatty acids to nurture lustrous coats and healthy skin.</p>
+              <div class="product-supplier">
+                <span>Supplier:</span> Pacific Crest Catch & Co.
+              </div>
+              <div class="product-footer">
+                <div class="product-price">$38.50</div>
+                <button class="btn btn-primary btn-sm btn-view-details" data-id="prod-2">View Details</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="product-card">
+            <div class="product-thumb">
+              <img src="assets/images/organic-cat-food.jpg" alt="Grain-Free Turkey & Cranberry Cat Morsels" loading="lazy">
+              <span class="badge badge-organic product-badge-float">🌱 Certified Organic Demo</span>
+              <button class="btn-favorite-float" data-product-id="prod-4" aria-label="Save to favorites">🤍</button>
+            </div>
+            <div class="product-body">
+              <span class="product-category">Cat Food</span>
+              <h3 class="product-title">Grain-Free Turkey & Cranberry Morsels</h3>
+              <p class="product-desc">Moisture-dense turkey morsels fortified with fresh organic cranberries to support feline urinary tract health.</p>
+              <div class="product-supplier">
+                <span>Supplier:</span> Whisker Green Sustainable Cattery
+              </div>
+              <div class="product-footer">
+                <div class="product-price">$26.90</div>
+                <button class="btn btn-primary btn-sm btn-view-details" data-id="prod-4">View Details</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="product-card">
+            <div class="product-thumb">
+              <img src="assets/images/freeze-dried-pet-food.jpg" alt="Freeze-Dried Raw Rabbit & Herb Bites" loading="lazy">
+              <span class="badge badge-organic product-badge-float">🌱 Certified Organic Demo</span>
+              <button class="btn-favorite-float" data-product-id="prod-5" aria-label="Save to favorites">🤍</button>
+            </div>
+            <div class="product-body">
+              <span class="product-category">Natural Treats</span>
+              <h3 class="product-title">Freeze-Dried Raw Rabbit Bites</h3>
+              <p class="product-desc">Single-source raw rabbit meat flash-frozen at peak freshness to preserve delicate enzymes and rich nutrients.</p>
+              <div class="product-supplier">
+                <span>Supplier:</span> Heritage Valley Farms
+              </div>
+              <div class="product-footer">
+                <div class="product-price">$18.25</div>
+                <button class="btn btn-primary btn-sm btn-view-details" data-id="prod-5">View Details</button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="text-center" style="margin-top: 40px;">
+          <a href="services.html" class="btn btn-primary">Browse All 12 Organic Products</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Featured Suppliers Section
+         ========================================================================== -->
+    <section class="section-padding" id="featuredSuppliers">
+      <div class="container">
+        <div class="section-head text-center">
+          <span class="badge">Regenerative Partnerships</span>
+          <h2>Meet Our Certified Local Suppliers</h2>
+          <p>Meet the ethical ranchers, family farms, and sustainable fishermen producing transparent pet nutrition.</p>
+        </div>
+
+        <div class="suppliers-grid">
+          <!-- Supplier 1 -->
+          <div class="supplier-card">
+            <div class="supplier-cover">
+              <img src="assets/images/fresh-farm-produce.jpg" alt="Meadow Valley Organic Farms" loading="lazy">
+              <span class="badge badge-organic supplier-badge">📍 Sonoma County, CA</span>
+            </div>
+            <div class="supplier-content">
+              <h3 class="supplier-name">Meadow Valley Organic Farms</h3>
+              <div class="supplier-meta">
+                <span>Poultry & Root Veggies</span> • <span>⭐ 4.9 Rating</span>
+              </div>
+              <p class="supplier-desc">
+                Dedicated to free-range ethical poultry, organic pumpkin patches, and nutrient-dense greens grown without synthetic pesticides.
+              </p>
+              <div class="supplier-tags">
+                <span class="supplier-tag">Non-GMO</span>
+                <span class="supplier-tag">Solar Powered</span>
+                <span class="supplier-tag">Human Grade</span>
+              </div>
+              <div class="supplier-action">
+                <a href="contact.html?supplier=Meadow%20Valley" class="btn btn-secondary btn-sm btn-block">Inquire Supplier</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Supplier 2 -->
+          <div class="supplier-card">
+            <div class="supplier-cover">
+              <img src="assets/images/salmon.jpg" alt="Pacific Crest Catch & Co." loading="lazy">
+              <span class="badge badge-organic supplier-badge">📍 Astoria, OR</span>
+            </div>
+            <div class="supplier-content">
+              <h3 class="supplier-name">Pacific Crest Catch & Co.</h3>
+              <div class="supplier-meta">
+                <span>Wild Sustainable Seafood</span> • <span>⭐ 5.0 Rating</span>
+              </div>
+              <p class="supplier-desc">
+                Wild-caught Pacific salmon and ocean mackerel hand-inspected to preserve supreme omega-3 purity for pets nationwide.
+              </p>
+              <div class="supplier-tags">
+                <span class="supplier-tag">Line Caught</span>
+                <span class="supplier-tag">DHA & EPA Rich</span>
+                <span class="supplier-tag">Eco-Packaged</span>
+              </div>
+              <div class="supplier-action">
+                <a href="contact.html?supplier=Pacific%20Crest" class="btn btn-secondary btn-sm btn-block">Inquire Supplier</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Supplier 3 -->
+          <div class="supplier-card">
+            <div class="supplier-cover">
+              <img src="assets/images/farm-to-table-ingredients.jpg" alt="Highland Ridge Pastures" loading="lazy">
+              <span class="badge badge-organic supplier-badge">📍 Boulder County, CO</span>
+            </div>
+            <div class="supplier-content">
+              <h3 class="supplier-name">Highland Ridge Pastures</h3>
+              <div class="supplier-meta">
+                <span>100% Grass-Fed Meats</span> • <span>⭐ 4.8 Rating</span>
+              </div>
+              <p class="supplier-desc">
+                Regenerative pasture-fed Angus cattle delivering human-grade cuts, mineral-rich bone broth, and organic organ meats.
+              </p>
+              <div class="supplier-tags">
+                <span class="supplier-tag">Grass-Finished</span>
+                <span class="supplier-tag">Antibiotic Free</span>
+                <span class="supplier-tag">Raw Friendly</span>
+              </div>
+              <div class="supplier-action">
+                <a href="contact.html?supplier=Highland%20Ridge" class="btn btn-secondary btn-sm btn-block">Inquire Supplier</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Why Choose Us Section
+         ========================================================================== -->
+    <section class="section-padding" style="background-color: var(--white);" id="whyChooseUs">
+      <div class="container">
+        <div class="section-head text-center">
+          <span class="badge badge-organic">The Organic Difference</span>
+          <h2>Why Farm-to-Table Nutrition Matters</h2>
+          <p>Transforming ordinary pet food through transparency, ethical care, and uncompromised ingredient integrity.</p>
+        </div>
+
+        <div class="why-us-grid">
+          <div class="why-card">
+            <div class="why-icon">🔍</div>
+            <h3>100% Transparency</h3>
+            <p>Know exactly which family farm grew the vegetables and raised the protein inside every single serving bowl.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon">🌾</div>
+            <h3>No Fillers or By-Products</h3>
+            <p>Say goodbye to corn, soy, synthetic colorings, or low-grade rendered meals that trigger pet allergies.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon">🌍</div>
+            <h3>Sustainable Eco-Footprint</h3>
+            <p>Support regenerative ranching and biodegradable packaging that heals soil and protects the planet.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon">🐾</div>
+            <h3>Optimal Pet Longevity</h3>
+            <p>Wholesome real food fuels vibrant digestion, healthy joint mobility, and long, joyous companion lives.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Farm-to-Table Process Section
+         ========================================================================== -->
+    <section class="section-padding" id="farmProcess">
+      <div class="container">
+        <div class="section-head text-center">
+          <span class="badge">Seamless Transparency</span>
+          <h2>Our 4-Step Farm-to-Table Journey</h2>
+          <p>From sunlit organic fields to your pet's bowl with complete traceability.</p>
+        </div>
+
+        <div class="process-grid">
+          <div class="process-step">
+            <div class="step-number">1</div>
+            <div class="step-icon">🚜</div>
+            <h3>Source from Farms</h3>
+            <p>We partner directly with certified organic ranches practicing regenerative, humane farming.</p>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">2</div>
+            <div class="step-icon">🔬</div>
+            <h3>Verify Ingredients</h3>
+            <p>Every harvest undergoes rigorous third-party testing for pesticides, heavy metals, and safety.</p>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">3</div>
+            <div class="step-icon">🍲</div>
+            <h3>Prepare Fresh Food</h3>
+            <p>Artisans gently steam, freeze-dry, or craft small batches preserving bioavailable micronutrients.</p>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">4</div>
+            <div class="step-icon">📦</div>
+            <h3>Deliver to Pet Owners</h3>
+            <p>Direct temperature-controlled delivery connects local farmers to your dog or cat's dish.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Customer Testimonials
+         ========================================================================== -->
+    <section class="section-padding" style="background-color: var(--light-green-alt);" id="testimonials">
+      <div class="container">
+        <div class="section-head text-center">
+          <span class="badge">Pet Parent Voices</span>
+          <h2>Loved by Pets & Their Guardians</h2>
+          <p>Authentic feedback from real companion parents thriving on our curated directory.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-rating">★★★★★</div>
+            <p class="testimonial-quote">
+              "Switching our Golden Retriever to Meadow Valley's pasture-raised meals cured his stubborn itchiness within three weeks. We can track every single ingredient!"
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">
+                <img src="assets/images/healthy-golden-retrievers.jpg" alt="Golden Retriever pet parent">
+              </div>
+              <div class="author-details">
+                <h4>Elena Rostova</h4>
+                <span>Golden Retriever Parent (Demo)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-rating">★★★★★</div>
+            <p class="testimonial-quote">
+              "My elderly Siamese cat was chronically picky until I discovered Pacific Crest's wild salmon pouches. Her energy and sleek coat returned completely."
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">
+                <img src="assets/images/kittens-cat-nutrition.jpg" alt="Cat owner">
+              </div>
+              <div class="author-details">
+                <h4>Marcus Vance</h4>
+                <span>Cat Parent of Two (Demo)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-rating">★★★★★</div>
+            <p class="testimonial-quote">
+              "Finding local ethical suppliers was always a challenge before this directory. Now I order directly from Highland Ridge with total peace of mind."
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">
+                <img src="assets/images/dogs-and-cats-together.jpg" alt="Multi-pet household">
+              </div>
+              <div class="author-details">
+                <h4>Dr. Clara Hayes</h4>
+                <span>Holistic Pet Care Advocate (Demo)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="demo-disclaimer">* Demonstration reviews provided for platform evaluation purposes.</p>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Newsletter Subscription Section
+         ========================================================================== -->
+    <div class="container">
+      <section class="newsletter-section">
+        <div class="newsletter-content">
+          <span class="badge badge-organic" style="margin-bottom: 12px; background: rgba(255,255,255,0.15); color:#FFF;">Weekly Farm Harvest</span>
+          <h2>Join Our Farm-to-Table Community</h2>
+          <p>Receive seasonal harvest drops, natural nutrition guides, and exclusive supplier discounts straight to your inbox.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" id="newsletterEmail" placeholder="Enter your email address" required aria-label="Email address for newsletter">
+            <button type="submit" class="btn btn-accent">Subscribe</button>
+          </form>
+          <div class="newsletter-msg" id="newsletterMsg" role="alert"></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       Site Footer
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-about">
+          <div class="brand-logo" style="color: #FFF; margin-bottom: 14px;">
+            <div class="brand-icon">🌱</div>
+            <div>Paws<span>Organic</span></div>
+          </div>
+          <p>
+            The premier farm-to-table organic directory dedicated to transparent nutrition, regenerative agriculture, and holistic pet wellness.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-btn" aria-label="Follow on Facebook">FB</a>
+            <a href="#" class="social-btn" aria-label="Follow on Instagram">IG</a>
+            <a href="#" class="social-btn" aria-label="Follow on Twitter">X</a>
+            <a href="#" class="social-btn" aria-label="Connect on LinkedIn">IN</a>
+          </div>
+        </div>
+
+        <div class="footer-col footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Our Mission</a></li>
+            <li><a href="services.html">Organic Services</a></li>
+            <li><a href="dashboard.html">User Dashboard</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-links">
+          <h3>Categories</h3>
+          <ul>
+            <li><a href="services.html?category=Dog%20Food">Organic Dog Food</a></li>
+            <li><a href="services.html?category=Cat%20Food">Natural Cat Food</a></li>
+            <li><a href="services.html?category=Natural%20Treats">Whole Food Treats</a></li>
+            <li><a href="services.html?category=Fresh%20Meals">Fresh Prepared Bowls</a></li>
+            <li><a href="services.html?category=Nutrition%20Supplements">Supplements</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-contact">
+          <h3>Contact Directory</h3>
+          <ul>
+            <li><span>📍</span> 482 Organic Pasture Lane, Portland, OR 97201</li>
+            <li><span>📞</span> +1 (800) 555-PAWS (7297)</li>
+            <li><span>✉️</span> support@pawsorganic.demo</li>
+            <li><span>⏰</span> Mon - Fri: 8:00 AM - 6:00 PM PST</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Farm-to-Table Organic Directory. All Rights Reserved. Frontend Demonstration.
+        </div>
+        <div>
+          <span>Privacy Policy</span> • <span>Terms of Service</span> • <span>Non-Veterinary Disclaimer</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       LOGIN & SIGNUP MODAL POPUPS (Accessible on all pages)
+       ========================================================================== -->
+  <!-- Login Modal -->
+  <div class="modal-overlay" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" data-close-modal="loginModal" aria-label="Close modal">&times;</button>
+      <div class="modal-header">
+        <h2 id="loginTitle">Welcome Back</h2>
+        <p>Log in to manage your favorites and farm orders</p>
+      </div>
+
+      <form id="loginForm" novalidate>
+        <div class="form-group">
+          <label for="loginEmail">Email Address</label>
+          <input type="email" id="loginEmail" class="form-control" placeholder="name@example.com" required>
+          <div class="invalid-feedback">Valid email required</div>
+        </div>
+
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <div class="password-input-wrap">
+            <input type="password" id="loginPassword" class="form-control" placeholder="Enter password (min 6 chars)" required>
+            <button type="button" class="password-toggle-btn" data-target="loginPassword" aria-label="Toggle password visibility">👁️</button>
+          </div>
+          <div class="invalid-feedback">Password must be at least 6 characters</div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; font-size: 0.88rem;">
+          <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+            <input type="checkbox" id="loginRemember"> Remember me
+          </label>
+          <a href="#" style="color: var(--primary-green); font-weight: 600;" onclick="showToast('Password reset link sent to demo email', 'info'); return false;">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Log In</button>
+      </form>
+
+      <div class="modal-switch-text">
+        Don't have an account? <a href="#" id="switchToSignup">Create an account</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Signup Modal -->
+  <div class="modal-overlay" id="signupModal" role="dialog" aria-modal="true" aria-labelledby="signupTitle">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" data-close-modal="signupModal" aria-label="Close modal">&times;</button>
+      <div class="modal-header">
+        <h2 id="signupTitle">Join Our Farm Community</h2>
+        <p>Discover fresh, organic pet nutrition directly from growers</p>
+      </div>
+
+      <form id="signupForm" novalidate>
+        <div class="form-group">
+          <label for="signupName">Full Name</label>
+          <input type="text" id="signupName" class="form-control" placeholder="Sarah Jenkins" required>
+          <div class="invalid-feedback">Full name is required</div>
+        </div>
+
+        <div class="form-group">
+          <label for="signupEmail">Email Address</label>
+          <input type="email" id="signupEmail" class="form-control" placeholder="sarah@example.com" required>
+          <div class="invalid-feedback">Valid email required</div>
+        </div>
+
+        <div class="form-group">
+          <label for="signupPassword">Password</label>
+          <div class="password-input-wrap">
+            <input type="password" id="signupPassword" class="form-control" placeholder="Create password (min 6 chars)" required>
+            <button type="button" class="password-toggle-btn" data-target="signupPassword" aria-label="Toggle password visibility">👁️</button>
+          </div>
+          <div class="invalid-feedback">Password must be at least 6 characters</div>
+        </div>
+
+        <div class="form-group">
+          <label for="signupConfirmPassword">Confirm Password</label>
+          <div class="password-input-wrap">
+            <input type="password" id="signupConfirmPassword" class="form-control" placeholder="Re-enter password" required>
+            <button type="button" class="password-toggle-btn" data-target="signupConfirmPassword" aria-label="Toggle password visibility">👁️</button>
+          </div>
+          <div class="invalid-feedback">Passwords must match</div>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 20px;">
+          <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.85rem; cursor: pointer;">
+            <input type="checkbox" id="signupTerms" required style="margin-top: 3px;">
+            <span>I agree to the Terms of Service & Privacy Policy (Demo confirmation)</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+      </form>
+
+      <div class="modal-switch-text">
+        Already have an account? <a href="#" id="switchToLogin">Log in here</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Details Modal -->
+  <div class="modal-overlay" id="productDetailsModal" role="dialog" aria-modal="true" aria-labelledby="productModalHeading">
+    <div class="modal-dialog modal-dialog-large">
+      <button class="modal-close-btn" data-close-modal="productDetailsModal" aria-label="Close modal">&times;</button>
+      <div id="productDetailsContent">
+        <!-- Rendered dynamically by js/products.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll-to-top button with circular animated progress ring -->
+  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top of page">
+    <svg class="scroll-progress-svg" viewBox="0 0 50 50">
+      <defs>
+        <linearGradient id="scrollGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#81C784"/>
+          <stop offset="100%" stop-color="#2E7D32"/>
+        </linearGradient>
+      </defs>
+      <circle class="scroll-progress-track" cx="25" cy="25" r="22"></circle>
+      <circle class="scroll-progress-bar" id="scrollProgressBar" cx="25" cy="25" r="22"></circle>
+    </svg>
+    <span class="scroll-top-icon">↑</span>
+  </button>
+
+  <!-- Dual AI Nutritionist & WhatsApp Instant Connect Floating Widget -->
+  <aside class="chat-dock" aria-label="Customer Support and AI Assistant">
+    <!-- WhatsApp Floating Trigger -->
+    <a href="https://wa.me/18005550199?text=Hi%2C%20I%20have%20a%20question%20about%20Farm-to-Table%20Organic%20pet%20nutrition" class="chat-launcher-btn whatsapp-launcher" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+      <svg viewBox="0 0 24 24">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.058-1.503-.312-.998-.423-1.666-1.393-1.716-1.46-.049-.068-.403-.537-.403-1.025 0-.488.257-.728.348-.827.091-.099.199-.124.266-.124.066 0 .133.003.19.006.061.003.143-.023.224.17.082.199.281.685.306.735.025.05.041.108.008.174-.033.067-.049.108-.099.166-.05.058-.105.13-.15.174-.05.05-.102.105-.044.205.058.099.257.424.551.686.379.337.698.441.797.491.099.05.158.042.216-.025.058-.066.249-.29.315-.39.066-.099.133-.083.224-.05.091.033.58.274.68.324.099.05.166.075.19.116.025.042.025.241-.119.646z"/>
+        <path d="M12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.66 1.436 5.176L2 22l4.981-1.306A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.167c-1.583 0-3.066-.454-4.327-1.24l-.31-.194-2.868.752.766-2.802-.213-.339A8.127 8.127 0 013.833 12c0-4.503 3.664-8.167 8.167-8.167 4.503 0 8.167 3.664 8.167 8.167 0 4.503-3.664 8.167-8.167 8.167z"/>
+      </svg>
+      <span class="launcher-tooltip">WhatsApp Us</span>
+    </a>
+
+    <!-- AI Nutritionist Floating Trigger -->
+    <button class="chat-launcher-btn ai-chat-launcher" id="aiChatLauncher" aria-label="Open AI Nutritionist Assistant">
+      <span class="ai-launcher-icon">🤖</span>
+      <span class="ai-online-badge"></span>
+      <span class="launcher-tooltip">Ask AI Nutritionist</span>
+    </button>
+  </aside>
+
+  <!-- AI Nutritionist Interactive Chat Window -->
+  <div class="ai-chat-window" id="aiChatWindow" role="dialog" aria-labelledby="aiChatTitle">
+    <div class="ai-chat-header">
+      <div class="ai-chat-title">
+        <div class="ai-avatar">🌱</div>
+        <div>
+          <h3 id="aiChatTitle">Dr. Paw AI Nutritionist</h3>
+          <p>Verified Organic Nutrition Advisor • Online</p>
+        </div>
+      </div>
+      <button class="ai-close-btn" id="aiCloseBtn" aria-label="Close AI Chat">&times;</button>
+    </div>
+
+    <div class="ai-chat-messages" id="aiChatMessages">
+      <div class="chat-bubble bot">
+        Hello pet parent! 🐾 I can help you find verified organic meals, diagnose common dietary sensitivities, or match your pet with certified local farms. What would you like to explore?
+      </div>
+      <div class="chat-quick-suggestions">
+        <button class="suggestion-pill" data-prompt="Best organic puppy food?">Puppy Growth Meals 🐕</button>
+        <button class="suggestion-pill" data-prompt="Cat food for sensitive stomachs?">Cat Novel Diets 🐈</button>
+        <button class="suggestion-pill" data-prompt="Where are the local farms?">Find Local Farms 🚜</button>
+        <button class="suggestion-pill" data-prompt="Connect with human on WhatsApp">WhatsApp Expert 📱</button>
+      </div>
+    </div>
+
+    <form class="ai-chat-input-bar" id="aiChatForm">
+      <input type="text" id="aiChatInput" placeholder="Ask about ingredients, allergies, meals..." aria-label="Chat input">
+      <button type="submit" class="ai-chat-send-btn" aria-label="Send message">➤</button>
+    </form>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/products.js"></script>
+</body>
+</html>

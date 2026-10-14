@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard | Farm-to-Table Organic Directory</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/favicon.svg">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       Site Header / Navigation (Strict Requirement: Hamburger <=1024px)
+       ========================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container navbar">
+      <a href="index.html" class="brand-logo" aria-label="Farm-to-Table Organic Directory Home">
+        <div class="brand-icon">🌱</div>
+        <div class="brand-text">Paws<span>Organic</span></div>
+      </a>
+
+      <!-- Desktop Navigation Menu (Visible ONLY > 1024px) -->
+      <nav class="nav-menu-desktop" aria-label="Desktop Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-auth-actions">
+          <button class="btn btn-secondary btn-sm open-login-btn">Log In</button>
+          <button class="btn btn-primary btn-sm open-signup-btn">Sign Up</button>
+        </div>
+      </nav>
+
+      <!-- Hamburger Menu Button (Visible ONLY <= 1024px) -->
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileNavDrawer">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer & Backdrop -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation Menu">
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="mobile-nav-link"><span>🏡</span> Home</a></li>
+      <li><a href="about.html" class="mobile-nav-link"><span>🌿</span> About</a></li>
+      <li><a href="services.html" class="mobile-nav-link"><span>🐾</span> Services</a></li>
+      <li><a href="dashboard.html" class="mobile-nav-link active"><span>📊</span> Dashboard</a></li>
+      <li><a href="contact.html" class="mobile-nav-link"><span>✉️</span> Contact</a></li>
+    </ul>
+    <div class="mobile-auth-actions">
+      <button class="btn btn-secondary btn-block open-login-btn">Log In</button>
+      <button class="btn btn-primary btn-block open-signup-btn">Sign Up</button>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       Dashboard Main Area
+       ========================================================================== -->
+  <main>
+    <section class="page-hero" style="padding: 50px 0;">
+      <div class="container">
+        <span class="badge badge-organic" style="margin-bottom: 10px; background: rgba(255,255,255,0.2); color:#FFF;">Member Portal Demo</span>
+        <h1>Pet Nutrition Dashboard</h1>
+        <p>Curate your companion's organic diet, manage saved suppliers, and personalize harvest preferences.</p>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="dashboard-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="dashboard-sidebar">
+          <div class="user-profile-badge">
+            <div class="user-avatar-circle" id="dashUserAvatar">S</div>
+            <div class="user-meta">
+              <h4 id="dashUserName">Sarah Jenkins</h4>
+              <span id="dashUserEmail">sarah.jenkins@example.com</span>
+            </div>
+          </div>
+
+          <nav class="dashboard-menu" aria-label="Dashboard Menu">
+            <button class="dash-menu-item active" data-tab="overview"><span>📊</span> Overview</button>
+            <button class="dash-menu-item" data-tab="favorites"><span>❤️</span> My Favorites</button>
+            <button class="dash-menu-item" data-tab="suppliers"><span>🚜</span> Saved Suppliers</button>
+            <button class="dash-menu-item" data-tab="recent"><span>🕒</span> Recently Viewed</button>
+            <button class="dash-menu-item" data-tab="settings"><span>⚙️</span> Profile Settings</button>
+            <button class="dash-menu-item logout" id="dashLogoutBtn"><span>🚪</span> Log Out</button>
+          </nav>
+        </aside>
+
+        <!-- Dashboard Content Panels -->
+        <section class="dashboard-content-area">
+          <!-- TAB 1: OVERVIEW -->
+          <div class="dash-tab-pane active" id="tab-overview">
+            <div class="dash-stats-grid">
+              <div class="dash-stat-card">
+                <div class="dash-stat-icon">❤️</div>
+                <div class="dash-stat-data">
+                  <h3 id="dashFavCount">2</h3>
+                  <p>Favorite Organic Items</p>
+                </div>
+              </div>
+              <div class="dash-stat-card">
+                <div class="dash-stat-icon">🚜</div>
+                <div class="dash-stat-data">
+                  <h3>3</h3>
+                  <p>Verified Farm Suppliers</p>
+                </div>
+              </div>
+              <div class="dash-stat-card">
+                <div class="dash-stat-icon">🕒</div>
+                <div class="dash-stat-data">
+                  <h3 id="dashRecentCount">2</h3>
+                  <p>Recently Viewed</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Profile Summary Panel -->
+            <div class="dash-panel">
+              <div class="dash-panel-head">
+                <h3>Companion Profile Summary</h3>
+                <button class="btn btn-secondary btn-sm" onclick="document.querySelector('[data-tab=settings]').click()">Edit Profile</button>
+              </div>
+              <p style="color: var(--muted-text); margin-bottom: 16px;">
+                Registered Pets: <strong style="color: var(--dark-green);" id="dashPetSummary">Barnaby & Luna • Raw & Certified Organic Sourced</strong>
+              </p>
+              <div style="background: var(--light-green-alt); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-light); font-size: 0.9rem;">
+                <strong>Dietary Goal:</strong> Supporting digestive comfort through farm-to-table pasture proteins and cold-pressed botanical omegas.
+              </div>
+            </div>
+
+            <!-- Recent Activity Panel -->
+            <div class="dash-panel">
+              <div class="dash-panel-head">
+                <h3>Recent Activity</h3>
+                <span style="font-size: 0.8rem; color: var(--muted-text);">Real-time demo log</span>
+              </div>
+              <div class="activity-list">
+                <div class="activity-item">
+                  <div class="activity-icon">❤️</div>
+                  <div>
+                    <strong>Favorited Product:</strong> Added Free-Range Pasture Chicken Meal to favorites
+                  </div>
+                  <div class="activity-time">Today, 2:15 PM</div>
+                </div>
+                <div class="activity-item">
+                  <div class="activity-icon">🚜</div>
+                  <div>
+                    <strong>Supplier Inquired:</strong> Connected with Meadow Valley Organic Farms
+                  </div>
+                  <div class="activity-time">Yesterday</div>
+                </div>
+                <div class="activity-item">
+                  <div class="activity-icon">📦</div>
+                  <div>
+                    <strong>Newsletter Subscribed:</strong> Joined weekly harvest updates
+                  </div>
+                  <div class="activity-time">3 days ago</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 2: MY FAVORITES -->
+          <div class="dash-tab-pane" id="tab-favorites">
+            <div class="dash-panel">
+              <div class="dash-panel-head">
+                <h3>Saved Organic Products</h3>
+                <a href="services.html" class="btn btn-secondary btn-sm">Browse More</a>
+              </div>
+              <div id="dashFavoritesEmpty" class="empty-results-box" style="display: none; padding: 40px 20px;">
+                <div class="empty-icon">🤍</div>
+                <h4>No favorites saved yet</h4>
+                <p style="color: var(--muted-text); font-size: 0.9rem; margin-bottom: 14px;">Click the heart icon on any product in the directory to save it here.</p>
+                <a href="services.html" class="btn btn-primary btn-sm">Explore Products</a>
+              </div>
+              <div class="products-grid" id="dashFavoritesGrid">
+                <!-- Injected via js/dashboard.js -->
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 3: SAVED SUPPLIERS -->
+          <div class="dash-tab-pane" id="tab-suppliers">
+            <div class="dash-panel">
+              <div class="dash-panel-head">
+                <h3>Connected Farm Suppliers</h3>
+                <a href="services.html#suppliersDirectory" class="btn btn-secondary btn-sm">Find More</a>
+              </div>
+              <div class="suppliers-grid" id="dashSuppliersGrid">
+                <!-- Injected via js/dashboard.js -->
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 4: RECENTLY VIEWED -->
+          <div class="dash-tab-pane" id="tab-recent">
+            <div class="dash-panel">
+              <div class="dash-panel-head">
+                <h3>Recently Viewed Items</h3>
+                <span style="font-size: 0.85rem; color: var(--muted-text);">Automatically tracked in your browser session</span>
+              </div>
+              <div id="dashRecentEmpty" class="empty-results-box" style="display: none; padding: 40px 20px;">
+                <div class="empty-icon">🕒</div>
+                <h4>No recent views recorded</h4>
+                <p style="color: var(--muted-text); font-size: 0.9rem;">View item details in the catalog to see them appear here.</p>
+              </div>
+              <div class="products-grid" id="dashRecentGrid">
+                <!-- Injected via js/dashboard.js -->
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 5: PROFILE & SETTINGS -->
+          <div class="dash-tab-pane" id="tab-settings">
+            <!-- Edit Profile -->
+            <div class="dash-panel">
+              <div class="dash-panel-head">
+                <h3>Personal & Pet Profile</h3>
+                <span class="badge badge-organic">Demo Storage</span>
+              </div>
+              <form id="profileForm">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                  <div class="form-group">
+                    <label for="profileName">Guardian Name</label>
+                    <input type="text" id="profileName" class="form-control" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="profileEmail">Email Address</label>
+                    <input type="email" id="profileEmail" class="form-control" required>
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                  <div class="form-group">
+                    <label for="profilePetName">Pet Name(s) & Breed</label>
+                    <input type="text" id="profilePetName" class="form-control" placeholder="Barnaby (Golden Retriever), Luna (Ragdoll)">
+                  </div>
+                  <div class="form-group">
+                    <label for="profileDiet">Dietary Preference</label>
+                    <select id="profileDiet" class="form-control">
+                      <option value="Raw & Certified Organic Sourced">Raw & Certified Organic Sourced</option>
+                      <option value="Gently Cooked Whole Foods">Gently Cooked Whole Foods</option>
+                      <option value="Grain-Free Pasture Kibble">Grain-Free Pasture Kibble</option>
+                      <option value="Senior Low-Fat Botanical">Senior Low-Fat Botanical</option>
+                      <option value="Puppy & Growth Formulations">Puppy & Growth Formulations</option>
+                    </select>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Save Profile Changes</button>
+              </form>
+            </div>
+
+            <!-- Change Password -->
+            <div class="dash-panel">
+              <div class="dash-panel-head">
+                <h3>Change Security Password</h3>
+              </div>
+              <form id="passwordForm">
+                <div class="form-group">
+                  <label for="currentPassword">Current Password</label>
+                  <input type="password" id="currentPassword" class="form-control" placeholder="••••••••" required>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                  <div class="form-group">
+                    <label for="newPassword">New Password (min 6 chars)</label>
+                    <input type="password" id="newPassword" class="form-control" placeholder="••••••••" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="confirmNewPassword">Confirm New Password</label>
+                    <input type="password" id="confirmNewPassword" class="form-control" placeholder="••••••••" required>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-secondary">Update Password</button>
+              </form>
+            </div>
+
+            <p class="demo-disclaimer" style="text-align: left;">
+              * Note: Profile and password changes are simulated in browser localStorage for demonstration purposes. No data is transmitted to an insecure remote server.
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       Site Footer
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-about">
+          <div class="brand-logo" style="color: #FFF; margin-bottom: 14px;">
+            <div class="brand-icon">🌱</div>
+            <div>Paws<span>Organic</span></div>
+          </div>
+          <p>The premier farm-to-table organic directory dedicated to transparent nutrition and regenerative agriculture.</p>
+          <div class="social-links">
+            <a href="#" class="social-btn">FB</a>
+            <a href="#" class="social-btn">IG</a>
+            <a href="#" class="social-btn">X</a>
+            <a href="#" class="social-btn">IN</a>
+          </div>
+        </div>
+
+        <div class="footer-col footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Our Mission</a></li>
+            <li><a href="services.html">Organic Services</a></li>
+            <li><a href="dashboard.html">User Dashboard</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-links">
+          <h3>Categories</h3>
+          <ul>
+            <li><a href="services.html?category=Dog%20Food">Organic Dog Food</a></li>
+            <li><a href="services.html?category=Cat%20Food">Natural Cat Food</a></li>
+            <li><a href="services.html?category=Natural%20Treats">Whole Food Treats</a></li>
+            <li><a href="services.html?category=Fresh%20Meals">Fresh Prepared Bowls</a></li>
+            <li><a href="services.html?category=Nutrition%20Supplements">Supplements</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-contact">
+          <h3>Contact Directory</h3>
+          <ul>
+            <li><span>📍</span> 482 Organic Pasture Lane, Portland, OR 97201</li>
+            <li><span>📞</span> +1 (800) 555-PAWS (7297)</li>
+            <li><span>✉️</span> support@pawsorganic.demo</li>
+            <li><span>⏰</span> Mon - Fri: 8:00 AM - 6:00 PM PST</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Farm-to-Table Organic Directory. All Rights Reserved. Frontend Demonstration.</div>
+        <div><span>Privacy Policy</span> • <span>Terms of Service</span> • <span>Non-Veterinary Disclaimer</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Login Modal -->
+  <div class="modal-overlay" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" data-close-modal="loginModal" aria-label="Close modal">&times;</button>
+      <div class="modal-header">
+        <h2 id="loginTitle">Welcome Back</h2>
+        <p>Log in to manage your favorites and farm orders</p>
+      </div>
+      <form id="loginForm" novalidate>
+        <div class="form-group">
+          <label for="loginEmail">Email Address</label>
+          <input type="email" id="loginEmail" class="form-control" placeholder="name@example.com" required>
+          <div class="invalid-feedback">Valid email required</div>
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <div class="password-input-wrap">
+            <input type="password" id="loginPassword" class="form-control" placeholder="Enter password (min 6 chars)" required>
+            <button type="button" class="password-toggle-btn" data-target="loginPassword">👁️</button>
+          </div>
+          <div class="invalid-feedback">Password must be at least 6 characters</div>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; font-size: 0.88rem;">
+          <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+            <input type="checkbox" id="loginRemember"> Remember me
+          </label>
+          <a href="#" style="color: var(--primary-green); font-weight: 600;" onclick="showToast('Password reset link sent to demo email', 'info'); return false;">Forgot Password?</a>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Log In</button>
+      </form>
+      <div class="modal-switch-text">
+        Don't have an account? <a href="#" id="switchToSignup">Create an account</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Signup Modal -->
+  <div class="modal-overlay" id="signupModal" role="dialog" aria-modal="true" aria-labelledby="signupTitle">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" data-close-modal="signupModal" aria-label="Close modal">&times;</button>
+      <div class="modal-header">
+        <h2 id="signupTitle">Join Our Farm Community</h2>
+        <p>Discover fresh, organic pet nutrition directly from growers</p>
+      </div>
+      <form id="signupForm" novalidate>
+        <div class="form-group">
+          <label for="signupName">Full Name</label>
+          <input type="text" id="signupName" class="form-control" placeholder="Sarah Jenkins" required>
+          <div class="invalid-feedback">Full name is required</div>
+        </div>
+        <div class="form-group">
+          <label for="signupEmail">Email Address</label>
+          <input type="email" id="signupEmail" class="form-control" placeholder="sarah@example.com" required>
+          <div class="invalid-feedback">Valid email required</div>
+        </div>
+        <div class="form-group">
+          <label for="signupPassword">Password</label>
+          <div class="password-input-wrap">
+            <input type="password" id="signupPassword" class="form-control" placeholder="Create password (min 6 chars)" required>
+            <button type="button" class="password-toggle-btn" data-target="signupPassword">👁️</button>
+          </div>
+          <div class="invalid-feedback">Password must be at least 6 characters</div>
+        </div>
+        <div class="form-group">
+          <label for="signupConfirmPassword">Confirm Password</label>
+          <div class="password-input-wrap">
+            <input type="password" id="signupConfirmPassword" class="form-control" placeholder="Re-enter password" required>
+            <button type="button" class="password-toggle-btn" data-target="signupConfirmPassword">👁️</button>
+          </div>
+          <div class="invalid-feedback">Passwords must match</div>
+        </div>
+        <div class="form-group" style="margin-bottom: 20px;">
+          <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.85rem; cursor: pointer;">
+            <input type="checkbox" id="signupTerms" required style="margin-top: 3px;">
+            <span>I agree to the Terms of Service & Privacy Policy (Demo confirmation)</span>
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+      </form>
+      <div class="modal-switch-text">
+        Already have an account? <a href="#" id="switchToLogin">Log in here</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Details Modal -->
+  <div class="modal-overlay" id="productDetailsModal" role="dialog" aria-modal="true" aria-labelledby="productModalHeading">
+    <div class="modal-dialog modal-dialog-large">
+      <button class="modal-close-btn" data-close-modal="productDetailsModal" aria-label="Close modal">&times;</button>
+      <div id="productDetailsContent"></div>
+    </div>
+  </div>
+
+  <!-- Scroll-to-top button with circular animated progress ring -->
+  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top of page">
+    <svg class="scroll-progress-svg" viewBox="0 0 50 50">
+      <defs>
+        <linearGradient id="scrollGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#81C784"/>
+          <stop offset="100%" stop-color="#2E7D32"/>
+        </linearGradient>
+      </defs>
+      <circle class="scroll-progress-track" cx="25" cy="25" r="22"></circle>
+      <circle class="scroll-progress-bar" id="scrollProgressBar" cx="25" cy="25" r="22"></circle>
+    </svg>
+    <span class="scroll-top-icon">↑</span>
+  </button>
+
+  <!-- Dual AI Nutritionist & WhatsApp Instant Connect Floating Widget -->
+  <aside class="chat-dock" aria-label="Customer Support and AI Assistant">
+    <a href="https://wa.me/18005550199?text=Hi%2C%20I%20have%20a%20question%20about%20Farm-to-Table%20Organic%20pet%20nutrition" class="chat-launcher-btn whatsapp-launcher" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+      <svg viewBox="0 0 24 24">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.058-1.503-.312-.998-.423-1.666-1.393-1.716-1.46-.049-.068-.403-.537-.403-1.025 0-.488.257-.728.348-.827.091-.099.199-.124.266-.124.066 0 .133.003.19.006.061.003.143-.023.224.17.082.199.281.685.306.735.025.05.041.108.008.174-.033.067-.049.108-.099.166-.05.058-.105.13-.15.174-.05.05-.102.105-.044.205.058.099.257.424.551.686.379.337.698.441.797.491.099.05.158.042.216-.025.058-.066.249-.29.315-.39.066-.099.133-.083.224-.05.091.033.58.274.68.324.099.05.166.075.19.116.025.042.025.241-.119.646z"/>
+        <path d="M12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.66 1.436 5.176L2 22l4.981-1.306A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.167c-1.583 0-3.066-.454-4.327-1.24l-.31-.194-2.868.752.766-2.802-.213-.339A8.127 8.127 0 013.833 12c0-4.503 3.664-8.167 8.167-8.167 4.503 0 8.167 3.664 8.167 8.167 0 4.503-3.664 8.167-8.167 8.167z"/>
+      </svg>
+      <span class="launcher-tooltip">WhatsApp Us</span>
+    </a>
+
+    <button class="chat-launcher-btn ai-chat-launcher" id="aiChatLauncher" aria-label="Open AI Nutritionist Assistant">
+      <span class="ai-launcher-icon">🤖</span>
+      <span class="ai-online-badge"></span>
+      <span class="launcher-tooltip">Ask AI Nutritionist</span>
+    </button>
+  </aside>
+
+  <!-- AI Nutritionist Interactive Chat Window -->
+  <div class="ai-chat-window" id="aiChatWindow" role="dialog" aria-labelledby="aiChatTitle">
+    <div class="ai-chat-header">
+      <div class="ai-chat-title">
+        <div class="ai-avatar">🌱</div>
+        <div>
+          <h3 id="aiChatTitle">Dr. Paw AI Nutritionist</h3>
+          <p>Verified Organic Nutrition Advisor • Online</p>
+        </div>
+      </div>
+      <button class="ai-close-btn" id="aiCloseBtn" aria-label="Close AI Chat">&times;</button>
+    </div>
+
+    <div class="ai-chat-messages" id="aiChatMessages">
+      <div class="chat-bubble bot">
+        Need assistance with your saved items, subscription deliveries, or finding direct farm suppliers? Ask me!
+      </div>
+      <div class="chat-quick-suggestions">
+        <button class="suggestion-pill" data-prompt="Where are the local farms?">Local Farms 🚜</button>
+        <button class="suggestion-pill" data-prompt="Connect with human on WhatsApp">WhatsApp Help 📱</button>
+      </div>
+    </div>
+
+    <form class="ai-chat-input-bar" id="aiChatForm">
+      <input type="text" id="aiChatInput" placeholder="Ask question..." aria-label="Chat input">
+      <button type="submit" class="ai-chat-send-btn" aria-label="Send message">➤</button>
+    </form>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
