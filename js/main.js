@@ -743,7 +743,9 @@ function initDynamicIconAnimations() {
    Interactive 3D Gyroscopic Card Tilt Engine (True 3D Spatial Physics)
    ========================================================================== */
 function initInteractive3DCards() {
-  const cards = document.querySelectorAll('.product-card, .category-card, .supplier-card');
+  const cards = document.querySelectorAll(
+    '.product-card, .category-card, .supplier-card, .why-card, .process-step, .testimonial-card, .dash-stat-card, .contact-card'
+  );
   if (!cards.length) return;
 
   cards.forEach(card => {

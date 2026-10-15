@@ -197,6 +197,10 @@ function renderDashboardData() {
       suppliersGrid.appendChild(col);
     });
   }
+
+  if (typeof initInteractive3DCards === 'function') {
+    initInteractive3DCards();
+  }
 }
 
 function initProfileForm() {

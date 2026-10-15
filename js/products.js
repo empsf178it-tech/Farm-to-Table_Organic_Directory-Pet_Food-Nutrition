@@ -258,6 +258,9 @@ function initProductCatalog() {
     });
 
     attachCardEventListeners();
+    if (typeof initInteractive3DCards === 'function') {
+      initInteractive3DCards();
+    }
   }
 
   function filterAndSort() {

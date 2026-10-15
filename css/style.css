@@ -647,6 +647,10 @@ button {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.hero-search-btn .btn-text-short {
+  display: none;
+}
+
 .hero-search-btn:hover {
   transform: translateY(-2px) scale(1.03);
   box-shadow: 0 6px 18px rgba(230, 81, 0, 0.45);
@@ -1586,15 +1590,47 @@ button {
   border-radius: var(--radius-md);
   padding: 32px 24px;
   border: 1px solid var(--border-light);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 8px 24px rgba(27, 67, 50, 0.06);
   text-align: center;
-  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease;
+  transform: translateY(0) perspective(800px) rotateX(0deg);
+  will-change: transform, box-shadow;
+}
+
+/* 3D Diagonal Shine Sweep for Why-Card */
+.why-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.45) 45%,
+    rgba(255, 255, 255, 0.85) 55%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
+  z-index: 5;
+  transition: none;
 }
 
 .why-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-10px) perspective(800px) rotateX(4deg) scale(1.025);
+  box-shadow: 0 24px 48px rgba(46, 125, 50, 0.16), 0 8px 18px rgba(0, 0, 0, 0.05);
   border-color: var(--primary-green);
+}
+
+.why-card:hover::before {
+  left: 150%;
+  transition: left 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .why-icon {
@@ -1608,6 +1644,12 @@ button {
   justify-content: center;
   font-size: 1.8rem;
   margin: 0 auto 20px;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.why-card:hover .why-icon {
+  transform: scale(1.15) rotate(8deg);
+  box-shadow: 0 10px 24px rgba(46, 125, 50, 0.25);
 }
 
 .why-card h3 {
@@ -1630,6 +1672,7 @@ button {
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   position: relative;
+  perspective: 1000px;
 }
 
 .process-step {
@@ -1637,16 +1680,47 @@ button {
   padding: 30px 20px;
   border-radius: var(--radius-md);
   border: 1px solid var(--border-light);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 8px 24px rgba(27, 67, 50, 0.06);
   text-align: center;
   position: relative;
-  transition: all var(--transition-normal);
+  overflow: hidden;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease;
+  transform: translateY(0) perspective(800px) rotateX(0deg);
+  will-change: transform, box-shadow;
+}
+
+/* 3D Diagonal Shine Sweep for Process Step */
+.process-step::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.45) 45%,
+    rgba(255, 255, 255, 0.85) 55%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
+  z-index: 5;
+  transition: none;
 }
 
 .process-step:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-10px) perspective(800px) rotateX(4deg) scale(1.025);
+  box-shadow: 0 24px 48px rgba(46, 125, 50, 0.16), 0 8px 18px rgba(0, 0, 0, 0.05);
   border-color: var(--primary-green);
+}
+
+.process-step:hover::before {
+  left: 150%;
+  transition: left 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .step-number {
@@ -1701,6 +1775,7 @@ button {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 26px;
+  perspective: 1000px;
 }
 
 .testimonial-card {
@@ -1708,9 +1783,48 @@ button {
   border-radius: var(--radius-md);
   padding: 28px;
   border: 1px solid var(--border-light);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 8px 24px rgba(27, 67, 50, 0.06);
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease;
+  transform: translateY(0) perspective(800px) rotateX(0deg);
+  will-change: transform, box-shadow;
+}
+
+/* 3D Diagonal Shine Sweep for Testimonial Card */
+.testimonial-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.45) 45%,
+    rgba(255, 255, 255, 0.85) 55%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
+  z-index: 5;
+  transition: none;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-9px) perspective(800px) rotateX(3.5deg) scale(1.02);
+  box-shadow: 0 22px 46px rgba(46, 125, 50, 0.16), 0 6px 16px rgba(0, 0, 0, 0.05);
+  border-color: var(--primary-green);
+}
+
+.testimonial-card:hover::before {
+  left: 150%;
+  transition: left 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .testimonial-rating {
@@ -1888,23 +2002,166 @@ button {
 .social-links {
   display: flex;
   gap: 12px;
+  align-items: center;
 }
 
 .social-btn {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--white);
-  transition: all var(--transition-fast);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.social-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  transition: transform 0.3s ease;
 }
 
 .social-btn:hover {
   background: var(--primary-green);
-  transform: translateY(-2px);
+  color: #ffffff;
+  border-color: var(--primary-green);
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 8px 18px rgba(46, 125, 50, 0.35);
+}
+
+.social-btn:hover svg {
+  transform: scale(1.1);
+}
+
+/* Contact Page Social Section */
+.contact-social-box {
+  margin-top: 24px;
+  padding: 20px 24px;
+  background: var(--white);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  box-shadow: 0 4px 14px rgba(27, 67, 50, 0.04);
+}
+
+.contact-social-box h4 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  color: var(--dark-green);
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.contact-social-box p {
+  font-size: 0.88rem;
+  color: var(--muted-text);
+  margin-bottom: 16px;
+}
+
+.contact-social-box .social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.contact-social-box .social-btn {
+  background: var(--light-green-alt);
+  color: var(--dark-green);
+  border: 1px solid var(--border-light);
+}
+
+.contact-social-box .social-btn:hover {
+  background: var(--primary-green);
+  color: #ffffff;
+  border-color: var(--primary-green);
+}
+
+/* Google Map Section */
+.map-section {
+  padding: 0 0 80px 0;
+  background: var(--light-cream);
+}
+
+.map-wrapper {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(27, 67, 50, 0.08);
+  border: 1px solid var(--border-light);
+}
+
+.map-header {
+  padding: 20px 28px;
+  background: linear-gradient(135deg, var(--dark-green), var(--primary-green));
+  color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.map-header-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.map-header-title svg {
+  width: 24px;
+  height: 24px;
+  fill: #ffca28;
+}
+
+.map-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  margin: 0;
+  color: #ffffff;
+}
+
+.map-header p {
+  font-size: 0.85rem;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.map-header .btn-map-dir {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.25s ease;
+}
+
+.map-header .btn-map-dir:hover {
+  background: #ffffff;
+  color: var(--dark-green);
+}
+
+.map-iframe-container {
+  width: 100%;
+  height: 440px;
+  position: relative;
+  border: none;
+}
+
+.map-iframe-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
 }
 
 /* ==========================================================================
@@ -2138,6 +2395,7 @@ button {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin-bottom: 30px;
+  perspective: 1000px;
 }
 
 .dash-stat-card {
@@ -2145,10 +2403,49 @@ button {
   border-radius: var(--radius-md);
   padding: 24px;
   border: 1px solid var(--border-light);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 6px 18px rgba(27, 67, 50, 0.05);
   display: flex;
   align-items: center;
   gap: 18px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease;
+  transform: translateY(0) perspective(800px) rotateX(0deg);
+  will-change: transform, box-shadow;
+}
+
+/* 3D Diagonal Shine Sweep for Dashboard Stat Card */
+.dash-stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.45) 45%,
+    rgba(255, 255, 255, 0.85) 55%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
+  z-index: 5;
+  transition: none;
+}
+
+.dash-stat-card:hover {
+  transform: translateY(-8px) perspective(800px) rotateX(3.5deg) scale(1.025);
+  box-shadow: 0 20px 42px rgba(46, 125, 50, 0.16), 0 6px 14px rgba(0, 0, 0, 0.04);
+  border-color: var(--primary-green);
+}
+
+.dash-stat-card:hover::before {
+  left: 150%;
+  transition: left 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .dash-stat-icon {
@@ -2161,6 +2458,12 @@ button {
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.dash-stat-card:hover .dash-stat-icon {
+  transform: scale(1.15) rotate(8deg);
+  box-shadow: 0 8px 18px rgba(46, 125, 50, 0.22);
 }
 
 .dash-stat-data h3 {
@@ -2180,8 +2483,13 @@ button {
   border-radius: var(--radius-md);
   border: 1px solid var(--border-light);
   padding: 28px;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 6px 20px rgba(27, 67, 50, 0.04);
   margin-bottom: 30px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.dash-panel:hover {
+  box-shadow: 0 12px 30px rgba(27, 67, 50, 0.08);
 }
 
 .dash-panel-head {
@@ -2251,6 +2559,7 @@ button {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  perspective: 1000px;
 }
 
 .contact-card {
@@ -2258,10 +2567,49 @@ button {
   border-radius: var(--radius-md);
   padding: 24px;
   border: 1px solid var(--border-light);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 6px 18px rgba(27, 67, 50, 0.05);
   display: flex;
   align-items: flex-start;
   gap: 16px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease;
+  transform: translateY(0) perspective(800px) rotateX(0deg);
+  will-change: transform, box-shadow;
+}
+
+/* 3D Diagonal Shine Sweep for Contact Card */
+.contact-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.45) 45%,
+    rgba(255, 255, 255, 0.85) 55%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
+  z-index: 5;
+  transition: none;
+}
+
+.contact-card:hover {
+  transform: translateY(-8px) perspective(800px) rotateX(3deg) scale(1.02);
+  box-shadow: 0 20px 42px rgba(46, 125, 50, 0.16), 0 6px 14px rgba(0, 0, 0, 0.04);
+  border-color: var(--primary-green);
+}
+
+.contact-card:hover::before {
+  left: 150%;
+  transition: left 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .contact-card-icon {
