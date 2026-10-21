@@ -222,6 +222,7 @@
 
   .process-grid {
     grid-template-columns: 1fr;
+    row-gap: 36px;
   }
 
   .trust-grid {

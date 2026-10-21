@@ -81,6 +81,36 @@ function initAuthModals() {
     });
   });
 
+  // Social Login Handler (Apple & Facebook)
+  const socialBtns = document.querySelectorAll('.btn-social[data-provider]');
+  socialBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const provider = btn.getAttribute('data-provider') || 'Social';
+      const user = {
+        name: provider === 'Apple' ? 'Apple Member' : 'Facebook Member',
+        email: provider === 'Apple' ? 'member@privaterelay.appleid.com' : 'member@facebook.demo',
+        provider: provider,
+        isLoggedIn: true,
+        loginDate: new Date().toLocaleDateString()
+      };
+
+      localStorage.setItem('pet_directory_user', JSON.stringify(user));
+      closeModal(loginModal);
+      closeModal(signupModal);
+      showToast(`Successfully signed in with ${provider}! (Demo Session)`, 'success');
+      updateNavForLoggedIn(user);
+
+      // If user is on dashboard, update display
+      const nameEl = document.getElementById('dashUserName');
+      const emailEl = document.getElementById('dashUserEmail');
+      const avatarEl = document.getElementById('dashUserAvatar');
+      if (nameEl) nameEl.textContent = user.name;
+      if (emailEl) emailEl.textContent = user.email;
+      if (avatarEl) avatarEl.textContent = provider === 'Apple' ? '' : 'f';
+    });
+  });
+
   // Login Form Submission
   const loginForm = document.getElementById('loginForm');
   if (loginForm) {
